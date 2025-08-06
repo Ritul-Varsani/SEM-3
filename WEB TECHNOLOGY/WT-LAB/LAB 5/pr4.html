@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="text">USER NAME</label>
+    <input type="text" id="txt">
+    <span id="sp"></span>
+    <button onclick="check()">click</button>
+    <br>
+    <label for="password">PASSWORD</label>
+    <input type="password" name="" id="pass">
+    <br>
+    <label for="PASSWORD">CONFIRM PASSWORD</label>
+    <input type="password" id="cpass">
+     <span id="sp1"></span>
+    <button onclick="passconf()">click</button>
+     <br>
+     <label for="">ENROLLMENT NO</label>
+     <input type="number" id="enNo">
+     <span id="print"></span>
+     <button onclick="check1()">click</button>
+      <br>
+     <label for="">EMAIL</label>
+     <input type="email" id="email">
+     <span id="print1"></span>
+     <button onclick="check2()">click</button>
+     <br>
+    <label for="PASSWORD"> PASSWORD</label>
+    <input type="password" id="Ipass">
+     <span id="sp2"></span>
+    <button onclick="pass()">click</button>
+    <script>
+         
+         
+         
+        function check(){
+             a=document.getElementById("txt").value
+            let pattern="^.{8,}$"
+            p=new RegExp(pattern)
+        
+        if(!p.test(a)){
+            document.getElementById("sp").innerHTML="it is not valid"
+        }
+       
+        }
+        function check1(){
+             d=document.getElementById("enNo").value
+             let pattern1="^.{11}$"
+        p1= new RegExp(pattern1);
+        if(!p1.test(d)){
+            document.getElementById("print").innerHTML="it is invaild"
+        }
+        }
+
+        function check2(){
+             e=document.getElementById("email").value
+             let pattern2="^[a-z]+[0-9]+@[a-z]+\.[a-z]{2,}$"
+        p1= new RegExp(pattern2);
+        if(!p1.test(e)){
+            document.getElementById("print1").innerHTML="it is invaild"
+        }
+        }
+
+        function passconf(){
+             b=document.getElementById("pass").value
+          c=document.getElementById("cpass").value
+            if(b!=c){
+                document.getElementById("sp1").innerHTML="password is not same"
+            }
+        }
+
+        function pass(){
+            e=document.getElementById("Ipass").value
+            let pattern3="^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+\[\]{};:,<.>/?]).{8,12}$"
+            p3=new RegExp(pattern3)
+            if(p3.test(e)){
+            document.getElementById("sp2").innerHTML="it is invaild"
+        }
+        }
+    </script>
+</body>
+</html>

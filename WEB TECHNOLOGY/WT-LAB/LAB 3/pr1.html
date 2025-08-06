@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pr1</title>
+</head>
+<body>
+    <script>
+        let num=prompt("Enter size of array:")
+        Array[num]
+        for (let i = 0; i < num; i++) {
+             Array[i]=parseInt(prompt("Enter number:"))
+            
+        }
+         large=Array[0]
+        for(let i=1;i<num;i++){
+            if(large<Array[i]){
+                large=Array[i];
+            }
+                
+            }
+        document.write("largest number is: "+large)
+    </script>
+</body>
+</html>

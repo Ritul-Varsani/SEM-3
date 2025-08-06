@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pr7</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2 id="myEle">
+        Hello World
+    </h2>
+   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore neque necessitatibus iusto ex at tempore dicta adipisci, vero alias nemo sint dolores inventore consectetur ullam assumenda cumque minus autem officia?</p>
+    <button id="myButton">change color</button>
+
+    <script>
+        $("p").mouseenter(function () {
+            $(this).css({
+                backgroundColor:"red"
+            })
+        })
+         $("p").mouseout(function () {
+            $(this).css({
+                backgroundColor:"white"
+            })
+        })
+    </script>
+</body>
+</html>

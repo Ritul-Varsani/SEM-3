@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="aclick(event)">click</button>
+    <button ondblclick="aclick(event)">double click</button>
+    <button onmousedown="aclick(event)">Mouse Down</button>
+    <button onmouseup="aclick(event)">Mouse up</button>
+    <button onmouseenter="aclick(event)">Mouse enter</button>
+    <button onmouseleave="aclick(event)">Mouse leave</button>
+    <button onmousemove="aclick(event)">Mouse move</button>
+    <button onmouseover="aclick(event)">Mouse over</button>
+    <script>
+        function aclick(e){
+            console.log(e.type)
+        }
+        
+    </script>
+</body>
+</html>

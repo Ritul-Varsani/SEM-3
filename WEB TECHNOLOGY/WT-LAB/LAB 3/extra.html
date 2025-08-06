@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>extra</title>
+</head>
+<body>
+    <script>
+        let num=prompt("Enter size of array:")
+        Array[num]
+        for (let i = 0; i < num; i++) {
+             Array[i]=prompt("Enter word:")
+            
+        }
+        let word=prompt("Enter new word:")
+        for (let i = 0; i < num; i++) {
+            
+            arr=Array[i].split(" ")
+            for (let k = 0; k < arr.length; k++) {
+                if(word==arr[k]){
+                    document.write(i+" "+k)
+                  
+                }
+                
+            }
+            break;
+        }
+    </script>
+</body>
+</html>

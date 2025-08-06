@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pr3</title>
+</head>
+<body>
+    <script>
+     let num=prompt("Enter size of array:")
+        Array[num]
+        for (let i = 0; i < num; i++) {
+             Array[i]=parseInt(prompt("Enter number:"))
+            
+        }
+        for(let i=0;i<num-1;i++){
+           for (let j = 0; j < num-i; j++) {
+           if (Array[j]>Array[j+1]) {
+            temp=Array[j]
+            Array[j]=Array[j+1]
+            Array[j+1]=temp
+           }
+            
+           }
+                
+            }
+       for (let i = 0; i < num; i++) {
+       document.write(Array[i]+" ")
+        
+       }
+    </script>
+</body>
+</html>

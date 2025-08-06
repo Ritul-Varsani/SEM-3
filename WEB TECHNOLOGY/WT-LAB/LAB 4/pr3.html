@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pr3</title>
+</head>
+<body>
+    <script>
+        st1={
+            name:"Ritul",
+            semester:3,
+            batch:7,
+            department:"CSE"
+        }
+        st2={
+            name:"Deep",
+            semester:3,
+            batch:8,
+            department:"IT"
+        }
+        st3={
+            name:"Pritam",
+            semester:3,
+            batch:3,
+            department:"B.VOC"
+        }
+
+        arr=[st1,st2,st3]
+document.write("<center>")
+        document.write("<table border='1'>")
+            document.write("<tr>")
+                    document.write("<th>"+'name'+"</th>")
+                    document.write("<th>"+'semester'+"</th>")
+                    document.write("<th>"+'batch'+"</th>")
+                    document.write("<th>"+'department'+"</th>")
+            document.write("</tr>")
+            for (let i = 0; i < arr.length; i++) {
+                document.write("<tr>")
+                    document.write("<td>"+arr[i].name+"</td>")
+                    document.write("<td>"+arr[i].semester+"</td>")
+                    document.write("<td>"+arr[i].batch+"</td>")
+                    document.write("<td>"+arr[i].department+"</td>")
+                document.write("</tr>")
+            }
+            document.write("</table>")
+            document.write("</center>")
+    </script>
+</body>
+</html>

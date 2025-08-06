@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pr1</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2 id="myEle">
+        Hello World
+    </h2>
+    <h2 id="myEle">
+        Hello jquery
+    </h2>
+    <h2 id="myEle">
+        Hello new
+    </h2>
+   
+
+    <script>
+        $(document).ready(function(){
+             $("body *").click(function () {
+               $(this).fadeOut("slow")
+        })
+         $("body *").click(function () {
+               $(this).fadeIn("slow")
+        })
+        })
+       
+    </script>
+</body>
+</html>

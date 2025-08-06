@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 ><span id="h1" onmouseover="myfunction(event)" onmouseout="myfunction(event)" >My Heading</span></h1>
+    <br>
+    <button onclick="fndtime()">fndtime</button>
+    <span id="ftime"></span>
+    <button onclick="changeColorRED()" id="change">red</button>
+    <button onclick="changeColorGREEN()" id="change1">green</button>
+    <script>
+        function myfunction(e){
+            a=document.getElementById("h1")
+            if (e.type=="mouseover") {
+             a.style.color="yellow"
+                
+            }
+              else{
+                a.style.color=""
+              }
+            
+        }
+
+        function fndtime(){
+            document.getElementById("ftime").innerHTML=Date()
+        }
+
+        function changeColorRED(){
+            document.body.style.backgroundColor=document.getElementById("change").innerHTML
+           
+        }
+        function changeColorGREEN(){
+             document.body.style.backgroundColor=document.getElementById("change1").innerHTML
+        }
+    </script>
+</body>
+</html>

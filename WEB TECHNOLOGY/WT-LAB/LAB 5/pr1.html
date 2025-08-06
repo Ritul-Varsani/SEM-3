@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body {
+      background-color: #eef3f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: background-color 0.3s ease;
+    }
+
+    center {
+      margin-top: 50px;
+    }
+
+    table {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.15);
+      border-collapse: separate;
+      border-spacing: 10px;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 18px;
+      font-size: 28px;
+      border: none;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      background-color: #f4f6fa;
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+      text-align: right;
+      transition: box-shadow 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      box-shadow: 0 0 8px rgba(100, 150, 250, 0.4);
+    }
+
+    button {
+      width: 65px;
+      height: 65px;
+      font-size: 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 14px;
+      background-color: #e0e0e0;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.1s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    button:hover {
+      background-color: #d5d5d5;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    button:active {
+      transform: scale(0.92);
+    }
+
+    button::after {
+      content: '';
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      background: radial-gradient(circle, rgba(255,255,255,0.6) 10%, transparent 10.01%);
+      background-repeat: no-repeat;
+      background-position: 50%;
+      transform: scale(0);
+      opacity: 0;
+      transition: transform 0.4s, opacity 0.6s;
+    }
+
+    button:active::after {
+      transform: scale(2.5);
+      opacity: 1;
+      transition: 0s;
+    }
+
+    #equl {
+      width: 270px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 22px;
+      border-radius: 16px;
+    }
+
+    #equl:hover {
+      background-color: #43a047;
+    }
+
+    #AC, #C {
+      background-color: #f44336;
+      color: white;
+    }
+
+    #AC:hover, #C:hover {
+      background-color: #e53935;
+    }
+
+    #back {
+      background-color: #2196F3;
+      color: white;
+    }
+
+    #back:hover {
+      background-color: #1976D2;
+    }
+
+    @media (max-width: 420px) {
+      table {
+        transform: scale(0.9);
+      }
+
+      button {
+        width: 58px;
+        height: 58px;
+        font-size: 18px;
+      }
+
+      #equl {
+        width: 240px;
+      }
+
+      input[type="text"] {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <table>
+      <tr>
+        <td colspan="4"><input type="text" id="pan" /></td>
+      </tr>
+      <tr>
+        <td><button id="AC" onclick="allclear()">AC</button></td>
+        <td><button id="C" onclick="allclear()">C</button></td>
+        <td><button id="mod" onclick="display('%')">%</button></td>
+        <td><button id="divide" onclick="display('/')">/</button></td>
+      </tr>
+      <tr>
+        <td><button id="n7" onclick="display('7')">7</button></td>
+        <td><button id="n8" onclick="display('8')">8</button></td>
+        <td><button id="n9" onclick="display('9')">9</button></td>
+        <td><button id="multi" onclick="display('')"></button></td>
+      </tr>
+      <tr>
+        <td><button id="n4" onclick="display('4')">4</button></td>
+        <td><button id="n5" onclick="display('5')">5</button></td>
+        <td><button id="n6" onclick="display('6')">6</button></td>
+        <td><button id="subs" onclick="display('-')">-</button></td>
+      </tr>
+      <tr>
+        <td><button id="n1" onclick="display('1')">1</button></td>
+        <td><button id="n2" onclick="display('2')">2</button></td>
+        <td><button id="n3" onclick="display('3')">3</button></td>
+        <td><button id="suma" onclick="display('+')">+</button></td>
+      </tr>
+      <tr>
+        <td><button id="nd0" onclick="display('00')">00</button></td>
+        <td><button id="n0" onclick="display('0')">0</button></td>
+        <td><button id="dot" onclick="display('.')">.</button></td>
+        <td><button id="back" onclick="backnum()">back</button></td>
+      </tr>
+      <tr>
+        <td colspan="4"><button id="equl" onclick="equail()">=</button></td>
+      </tr>
+    </table>
+  </center>
+  <script>
+    function display(num) {
+      let ans = document.getElementById("pan");
+      ans.value += num;
+    }
+
+    function equail() {
+      let ans = document.getElementById("pan");
+      let b = ans.value;
+      for (let i = 0; i < b.length; i++) {
+        if (b.charAt(i) == '+') {
+          c = b.split('+');
+          let x = parseFloat(c[0]);
+          let y = parseFloat(c[1]);
+          ans.value = x + y;
+        } else if (b.charAt(i) == '-') {
+          c = b.split('-');
+          let x = parseFloat(c[0]);
+          let y = parseFloat(c[1]);
+          ans.value = x - y;
+        } else if (b.charAt(i) == '*') {
+          c = b.split('*');
+          let x = parseFloat(c[0]);
+          let y = parseFloat(c[1]);
+          ans.value = x * y;
+        } else if (b.charAt(i) == '/') {
+          c = b.split('/');
+          let x = parseFloat(c[0]);
+          let y = parseFloat(c[1]);
+          ans.value = x / y;
+        } else if (b.charAt(i) == '%') {
+          c = b.split('%');
+          let x = parseFloat(c[0]);
+          let y = parseFloat(c[1]);
+          ans.value = x % y;
+        }
+      }
+    }
+
+    function backnum() {
+      let ans = document.getElementById("pan");
+      let b = ans.value;
+      ans.value = b.substr(0, b.length - 1);
+    }
+
+    function allclear() {
+      let ans = document.getElementById("pan");
+      ans.value = "";
+    }
+  </script>
+</body>
+</html>

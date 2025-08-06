@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR7</title>
+</head>
+<body>
+        <script>
+            let name=prompt("Enter name:")
+            let c=0
+            let i=0
+            for( i=0;i<name.length;i++){
+                if(name[i]=='a'){
+                   break
+                }
+            }
+            let k=0
+            for(c=i+1;c<name.length;c++){
+                if(name[c]=='a'){
+                   k=c
+                }
+            }
+            for(let p=i+1;p<k;p++){
+                document.write(name[p])
+            }
+        </script>
+</body>
+</html>

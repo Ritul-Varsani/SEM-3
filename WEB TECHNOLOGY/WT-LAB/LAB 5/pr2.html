@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            min-width: 300px;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 15px;
+            width: 95%;
+            padding: 12px;
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #357ABD;
+        }
+    </style>
+</head>
+<body>
+    <div style="justify-content: center;">
+        <h2>LOGIN</h2>
+        <div>
+            <input type="text" name="" id="username">
+            <br>
+            <input type="password" name="" id="cpass">
+            <br>
+            <button onclick="check()">LOGIN</button>
+        </div>
+    </div>
+    <script>
+        function check(){
+            a=document.getElementById("username").value;
+            b=document.getElementById("cpass").value;
+
+            if(a!="Ritul_Varsani"){
+                alert("invaild username");
+            }
+            else if (b!="Ritul@345") {
+                alert("invalid password");
+            }
+            else{
+                confirm("Are you confirm login in this page");
+                if (true) {
+                    document.write("WELCOME!......")
+                }
+            }
+        }
+    </script>
+</body>
+</html>

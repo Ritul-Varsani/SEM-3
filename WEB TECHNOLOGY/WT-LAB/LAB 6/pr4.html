@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="myfunction(event)">
+         <input type="text" onchange="myfunction(event)">
+    <input type="text" oninput="myfunction(event)">
+    <input type="text" onfocus="myfunction(event)">
+    <input type="text" onblur="myfunction(event)">
+    <button >submit</button>
+     <button >reset</button>
+    </form>
+   
+
+     <script>
+        function myfunction(e){
+            console.log(e.type)
+        }
+     </script>
+</body>
+</html>

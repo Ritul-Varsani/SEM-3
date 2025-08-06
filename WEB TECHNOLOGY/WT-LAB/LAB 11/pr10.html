@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Registration</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-top: 30px;
+  }
+
+  form {
+    background: #fff;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  table {
+    width: 100%;
+  }
+
+  td {
+    padding: 10px;
+    vertical-align: top;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+
+  input[type="submit"],
+  input[type="reset"] {
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+  }
+
+  input[type="reset"] {
+    background-color: #dc3545;
+    color: white;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #218838;
+  }
+
+  input[type="reset"]:hover {
+    background-color: #c82333;
+  }
+
+  @media (max-width: 600px) {
+    td {
+      display: block;
+      width: 100%;
+    }
+  }
+</style>
+
+</head>
+<body>
+  <form id="regForm" method="get">
+    <table cellspacing="10" align="center">
+      <caption><h2>Student Registration</h2></caption>
+      <tr>
+        <td>Full Name</td>
+        <td><input type="text" id="fname" placeholder="First Name" /></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><input type="email" id="email" placeholder="abc1@gmail.com" /></td>
+      </tr>
+      <tr>
+        <td>Mobile No.</td>
+        <td><input type="tel" id="mob" /></td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td><textarea id="textar" cols="30" rows="4"></textarea></td>
+      </tr>
+      <tr>
+        <td>Nationality</td>
+        <td><input type="text" id="nat" /></td>
+      </tr>
+      <tr>
+        <td>Date of Birth</td>
+        <td><input type="date" id="date" /></td>
+      </tr>
+      <tr>
+        <td>Gender</td>
+        <td>
+          <input type="radio" name="Gender" value="Male" /> Male
+          <input type="radio" name="Gender" value="Female" /> Female
+        </td>
+      </tr>
+      <tr>
+        <td>Highest Degree</td>
+        <td>
+          <select id="degree">
+            <option value="" disabled selected>Select degree</option>
+            <option value="B.E./B.TECH.">B.E./B.TECH.</option>
+            <option value="B.COM.">B.COM.</option>
+            <option value="B.VOC.">B.VOC.</option>
+            <option value="M.E.">M.E.</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>CPI</td>
+        <td><input type="text" id="cpi" /></td>
+      </tr>
+      <tr>
+        <td>University</td>
+        <td><input type="text" id="uni" /></td>
+      </tr>
+      <tr>
+        <td>Passing Year</td>
+        <td>
+          <select id="passYear">
+            <option value="" disabled selected>Select your passing year</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td align="right"><input type="submit" value="Submit" /></td>
+        <td align="left"><input type="reset" value="Cancel" /></td>
+      </tr>
+    </table>
+  </form>
+
+  <script>
+    $(document).ready(function () {
+      $("#regForm").submit(function (e) {
+        let isValid = true;
+
+       
+        const name = $("#fname").val().trim();
+        const nameRegex = /^[A-Za-z\s]{2,}$/;
+        if (!nameRegex.test(name)) {
+          alert("Invalid full name");
+          isValid = false;
+        }
+
+        
+        const email = $("#email").val().trim();
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+          alert("Invalid email address");
+          isValid = false;
+        }
+
+        
+        const mob = $("#mob").val().trim();
+        const mobRegex = /^[0-9]{10}$/;
+        if (!mobRegex.test(mob)) {
+          alert("Invalid mobile number");
+          isValid = false;
+        }
+
+        
+        const address = $("#textar").val().trim();
+        if (address.length < 5) {
+          alert("Please enter a valid address");
+          isValid = false;
+        }
+
+        
+        const nat = $("#nat").val().trim();
+        if (!/^[A-Za-z\s]+$/.test(nat)) {
+          alert("Invalid nationality");
+          isValid = false;
+        }
+
+        
+        const dob = $("#date").val();
+        if (!dob || new Date(dob) >= new Date()) {
+          alert("Please enter a valid date of birth");
+          isValid = false;
+        }
+
+      
+        if ($("input[name='Gender']:checked").length === 0) {
+          alert("Please select your gender");
+          isValid = false;
+        }
+
+        
+        if ($("#degree").val() === null) {
+          alert("Please select a degree");
+          isValid = false;
+        }
+
+        
+        const cpi = $("#cpi").val().trim();
+        if (!/^\d+(\.\d{1,2})?$/.test(cpi)) {
+          alert("Invalid CPI");
+          isValid = false;
+        }
+
+       
+        const uni = $("#uni").val().trim();
+        if (uni.length < 2) {
+          alert("Invalid university name");
+          isValid = false;
+        }
+
+       
+        if ($("#passYear").val() === null) {
+          alert("Please select your passing year");
+          isValid = false;
+        }
+
+        if (!isValid) {
+          e.preventDefault(); 
+        }
+      });
+    });
+  </script>
+</body>
+</html>

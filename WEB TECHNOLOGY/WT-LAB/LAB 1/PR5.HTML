@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR5</title>
+</head>
+<body>
+        <script>
+             let a=parseInt(prompt("Enter number:"))
+             let org=a
+             let rev=0
+             while (org!=0) {
+                rev=(org%10)+(rev*10)
+                org=Math.floor(org/10)
+             }
+             
+             if (rev==a) {
+                alert("palindrome number")
+             }
+             else{
+                alert("not palindrome number")
+             }
+        </script>
+</body>
+</html>

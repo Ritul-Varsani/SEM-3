@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD on Array of Objects using jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        input, button { padding: 6px 10px; margin: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    </style>
+</head>
+<body>
+
+    <h2>CRUD on Array of Objects using jQuery</h2>
+
+    <input type="hidden" id="userId">
+    <input type="text" id="name" placeholder="Name">
+    <input type="number" id="age" placeholder="Age">
+    <button id="addBtn">Add</button>
+    <button id="updateBtn" style="display:none;">Update</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th><th>Name</th><th>Age</th><th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="userTableBody"></tbody>
+    </table>
+
+    <script>
+        let users = [];
+        let nextId = 1;
+
+        function renderTable() {
+            $('#userTableBody').empty();
+            $.each(users, function(index, user) {
+                $('#userTableBody').append(`
+                    <tr>
+                        <td>${user.id}</td>
+                        <td>${user.name}</td>
+                        <td>${user.age}</td>
+                        <td>
+                            <button onclick="editUser(${user.id})">Edit</button>
+                            <button onclick="deleteUser(${user.id})">Delete</button>
+                        </td>
+                    </tr>
+                `);
+            });
+        }
+
+        function resetForm() {
+            $('#userId').val('');
+            $('#name').val('');
+            $('#age').val('');
+            $('#addBtn').show();
+            $('#updateBtn').hide();
+        }
+
+        $('#addBtn').click(function() {
+            const name = $('#name').val().trim();
+            const age = parseInt($('#age').val());
+            if (name && age) {
+                users.push({ id: nextId++, name, age });
+                renderTable();
+                resetForm();
+            } else {
+                alert("Please enter valid name and age.");
+            }
+        });
+
+        $('#updateBtn').click(function() {
+            const id = parseInt($('#userId').val());
+            const name = $('#name').val().trim();
+            const age = parseInt($('#age').val());
+
+            if (name && age) {
+                const user = users.find(u => u.id === id);
+                if (user) {
+                    user.name = name;
+                    user.age = age;
+                    renderTable();
+                    resetForm();
+                }
+            } else {
+                alert("Please enter valid data.");
+            }
+        });
+
+        function editUser(id) {
+            const user = users.find(u => u.id === id);
+            if (user) {
+                $('#userId').val(user.id);
+                $('#name').val(user.name);
+                $('#age').val(user.age);
+                $('#addBtn').hide();
+                $('#updateBtn').show();
+            }
+        }
+
+        function deleteUser(id) {
+            if (confirm("Are you sure you want to delete this user?")) {
+                users = users.filter(u => u.id !== id);
+                renderTable();
+            }
+        }
+
+        
+        renderTable();
+    </script>
+
+</body>
+</html>
